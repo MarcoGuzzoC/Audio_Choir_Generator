@@ -1,1 +1,10 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
 *.wav
+
+data/
+out/
+
+mypy.ini
+.flake8
