@@ -17,7 +17,7 @@ class GREGOConfig:
     block_size: int = 216
     dropout: float = 0.2
     bias: bool = False
-    number_of_stack: int = 5
+    number_of_stack: int = 6
 
     # Training Loop
     max_epochs: int = 1000
