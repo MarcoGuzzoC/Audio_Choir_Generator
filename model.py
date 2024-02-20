@@ -1,12 +1,8 @@
-"""TODO"""
-
 from torch import nn
-
 from GREGOConfig import GREGOConfig
 
 
 class ConvDown(nn.Module):
-    """TODO"""
 
     def __init__(self, in_channels, out_channels):
         super(ConvDown, self).__init__()
@@ -22,7 +18,7 @@ class ConvDown(nn.Module):
             dilation=1,
         )
         self.norm = nn.BatchNorm2d(self.out_channels)
-        self.dropout = nn.Dropout2d(self.config.dropout)
+        self.dropout = nn.Dropout2d(self.config.dropout) #essayer de faire varier 
         self.fc = nn.LeakyReLU(0.2)
 
     def forward(self, x):
@@ -75,7 +71,7 @@ class Decoder(nn.Module):
         channels = [out_channels] + [2**i for i in range(3, 10)]
         self.decoder = nn.ModuleList(
             [ConvUp(channels[i + 1], channels[i]) for i in range(number_of_stack)]
-        )[::-1]
+            )[::-1]
 
     def forward(self, x):
         for layer in self.decoder:
@@ -92,7 +88,6 @@ class AutoEncoder(nn.Module):
         self.decoder = Decoder(self.in_channels, self.config.number_of_stack)
 
     def forward(self, x):
-        # TODO : Define your forward
         latent_representation = self.encoder(x)
         reconstructed_image = self.decoder(latent_representation)
         return reconstructed_image
