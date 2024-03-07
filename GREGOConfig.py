@@ -6,11 +6,10 @@ import torch
 class GREGOConfig:
     """
     Data class that stores the configuration for a GREGO model.
-    TODO
     """
 
     # data
-    batch_size: int = 18
+    batch_size: int = 64
 
     # model
     n_embed: int = 216
