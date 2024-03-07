@@ -5,6 +5,9 @@ __pycache__/
 *.wav
 
 data/
+dataset/
+min_max_values/
+spectrograms/
 out/
 
 mypy.ini
