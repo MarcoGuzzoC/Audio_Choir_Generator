@@ -16,13 +16,13 @@ class GREGOConfig:
     block_size: int = 216
     dropout: float = 0.2
     bias: bool = False
-    number_of_stack: int = 6
+    number_of_stack: int = 5
 
     # Training Loop
     max_epochs: int = 1000
 
     # adamw optimizer
-    learning_rate: float = 0.00001
+    learning_rate: float = 1e-5
 
     # system
     device: str = "cuda" if torch.cuda.is_available() else "cpu"

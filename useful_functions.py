@@ -4,6 +4,8 @@ from datasets import Dataset, DatasetDict, load_from_disk
 import librosa as lib
 import random as rd
 import pickle
+import matplotlib.pyplot as plt
+import scipy
 
 def load_from_file(file: str):
     
@@ -180,3 +182,18 @@ def data_wave_generation(list_of_wavefile:list)->list:
 
     return sound
 
+def lowpass(data: np.ndarray, cutoff: float, sample_rate: float, poles: int = 5):
+    sos = scipy.signal.butter(poles, cutoff, 'lowpass', fs=sample_rate, output='sos')
+    filtered_data = scipy.signal.sosfiltfilt(sos, data)
+    return filtered_data
+
+def plot_response(w, h, title):
+    "Utility function to plot response functions"
+    fig = plt.figure(figsize=(10,20))
+    ax = fig.add_subplot(111)
+    ax.plot(w, 20*np.log10(np.abs(h)))
+    ax.set_ylim(-40, 5)
+    ax.grid(True)
+    ax.set_xlabel('Frequency (Hz)')
+    ax.set_ylabel('Gain (dB)')
+    ax.set_title(title)
