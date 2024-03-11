@@ -119,7 +119,7 @@ def gen_spectrogramm(li: list, sr: int):
     """    
 
     hl = 512 # number of samples per time-step in spectrogram
-    hi = 216 # Height of image
+    hi = 256 # Height of image
     wi = 384 # Width of image
 
     spec = []
