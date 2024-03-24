@@ -5,12 +5,15 @@ projet1/
 model_100_epochs/
 
 *.wav
+*.png
 
 data/
 dataset/
 min_max_values/
 spectrograms/
 out/
+files/
+checkpoint/
 
 mypy.ini
 .flake8

@@ -7,13 +7,12 @@ class GREGOConfig:
     """
     Data class that stores the configuration for a GREGO model.
     """
-
     # data
-    batch_size: int = 64
+    batch_size: int = 18
 
     # model
-    n_embed: int = 216
-    block_size: int = 216
+    n_embed: int = 256
+    block_size: int = 128
     dropout: float = 0.2
     bias: bool = False
     number_of_stack: int = 5
